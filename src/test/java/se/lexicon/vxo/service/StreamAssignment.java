@@ -162,8 +162,17 @@ public class StreamAssignment {
 
         List<PersonDto> dtoList = null;
 
-        //Write code here
+        Predicate<Person> bornBefore20 = p->p.getDateOfBirth().isBefore(date);
+        Function<Person,PersonDto> magic = new Function<Person, PersonDto>() {
+            @Override
+            public PersonDto apply(Person person) {
+                PersonDto personDto = new PersonDto(person.getPersonId(),
+                        person.getFirstName() + " " + person.getLastName());
+                return personDto;
+            }
+        };
 
+        dtoList = people.stream().filter(bornBefore20).map(magic).collect(Collectors.toList());
 
         assertNotNull(dtoList);
         assertEquals(expectedSize, dtoList.size());
