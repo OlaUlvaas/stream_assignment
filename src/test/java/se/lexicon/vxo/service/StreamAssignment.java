@@ -61,7 +61,7 @@ public class StreamAssignment {
         long amount = 0;
         int expected = 90;
 
-        //Write code here
+        amount = people.stream().filter(s -> s.getLastName().equalsIgnoreCase("Andersson")).count();
 
 
         assertEquals(expected, amount);
