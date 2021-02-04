@@ -91,7 +91,8 @@ public class StreamAssignment {
         int expectedSize = 8882;
         Set<LocalDate> dates = null;
 
-        //Write code here
+        Function<Person, LocalDate> personToLocalDate = p -> p.getDateOfBirth();
+        dates = people.stream().map(personToLocalDate).collect(Collectors.toCollection(TreeSet::new));
 
 
 
