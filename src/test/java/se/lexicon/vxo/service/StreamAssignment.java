@@ -193,9 +193,12 @@ public class StreamAssignment {
 
         Optional<String> optional = null;
 
-        //Write code here
+        Predicate<Person> person5914 = p->p.getPersonId() == personId;
+        Function<Person, String> pToStr = p->p.getDateOfBirth().getDayOfWeek() + " " +
+                p.getDateOfBirth().getDayOfMonth() + " " + p.getDateOfBirth().getMonth() + " " +
+                p.getDateOfBirth().getYear();
 
-
+        optional = people.stream().filter(person5914).map(pToStr).findFirst();
 
         assertNotNull(optional);
         assertTrue(optional.isPresent());
