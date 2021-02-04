@@ -8,8 +8,11 @@ import se.lexicon.vxo.model.PersonDto;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.*;
+import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.function.ToIntFunction;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -31,7 +34,9 @@ public class StreamAssignment {
     public void task1(){
         List<Integer> integers = Arrays.asList(1,2,3,4,5,6,7,8,9,10);
 
-        //Write code here
+
+        Stream<Integer> nums = integers.stream();
+        nums.forEach(System.out::println);
 
     }
 
@@ -42,9 +47,10 @@ public class StreamAssignment {
     public void task2(){
         long amount = 0;
 
-        //Write code here
+        amount = people.stream().count();
 
         assertEquals(10000, amount);
+
     }
 
     /**
@@ -56,6 +62,7 @@ public class StreamAssignment {
         int expected = 90;
 
         //Write code here
+
 
         assertEquals(expected, amount);
     }
@@ -71,6 +78,7 @@ public class StreamAssignment {
         //Write code here
 
 
+
         assertNotNull(females);
         assertEquals(expectedSize, females.size());
     }
@@ -84,6 +92,8 @@ public class StreamAssignment {
         Set<LocalDate> dates = null;
 
         //Write code here
+
+
 
         assertNotNull(dates);
         assertTrue(dates instanceof TreeSet);
@@ -101,6 +111,8 @@ public class StreamAssignment {
 
         //Write code here
 
+
+
         assertNotNull(result);
         assertEquals(expectedLength, result.length);
     }
@@ -115,6 +127,7 @@ public class StreamAssignment {
         Optional<Person> optional = null;
 
         //Write code here
+
 
         assertNotNull(optional);
         assertTrue(optional.isPresent());
@@ -132,6 +145,7 @@ public class StreamAssignment {
 
         //Write code here
 
+
         assertNotNull(optional);
         assertEquals(expectedBirthDate, optional.get().getDateOfBirth());
     }
@@ -148,8 +162,13 @@ public class StreamAssignment {
 
         //Write code here
 
+
         assertNotNull(dtoList);
         assertEquals(expectedSize, dtoList.size());
+
+        /**
+         *
+         */
     }
 
     /**
@@ -164,6 +183,8 @@ public class StreamAssignment {
         Optional<String> optional = null;
 
         //Write code here
+
+
 
         assertNotNull(optional);
         assertTrue(optional.isPresent());
@@ -183,6 +204,8 @@ public class StreamAssignment {
 
         //Write code here
 
+
+
         assertTrue(averageAge > 0);
         assertEquals(expected, averageAge, .01);
     }
@@ -197,6 +220,7 @@ public class StreamAssignment {
         String[] result = null;
 
         //Write code here
+
 
         assertNotNull(result);
         assertArrayEquals(expected, result);
