@@ -75,7 +75,7 @@ public class StreamAssignment {
         int expectedSize = 4988;
         List<Person> females = null;
 
-        //Write code here
+        females = people.stream().filter(p -> p.getGender() == Gender.FEMALE).collect(Collectors.toList());
 
 
 
