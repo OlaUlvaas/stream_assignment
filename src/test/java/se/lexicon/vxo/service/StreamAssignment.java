@@ -110,7 +110,8 @@ public class StreamAssignment {
 
         Person[] result = null;
 
-        //Write code here
+        Predicate<Person> eriks = p -> p.getFirstName().equals("Erik");
+        result = people.stream().filter(eriks).toArray(Person[]::new);
 
 
 
