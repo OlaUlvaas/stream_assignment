@@ -216,8 +216,7 @@ public class StreamAssignment {
         double expected = 54.42;
         double averageAge = 0;
 
-        //Write code here
-
+        averageAge = people.stream().mapToInt(personToAge).reduce(0, (n1, n2) -> n1 + n2) / 10000d;
 
 
         assertTrue(averageAge > 0);
