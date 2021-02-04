@@ -232,7 +232,13 @@ public class StreamAssignment {
 
         String[] result = null;
 
-        //Write code here
+        Predicate<Person> palindrome = p->
+                new StringBuilder(p.getFirstName()).reverse().toString().equalsIgnoreCase(p.getFirstName());
+        Function<Person, String> pToStr = p->p.getFirstName();
+
+
+        result = people.stream().filter(palindrome).map(pToStr).sorted((s1, s2)->
+                s1.compareToIgnoreCase(s2)).distinct().toArray(String[]::new);
 
 
         assertNotNull(result);
