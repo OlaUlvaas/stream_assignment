@@ -7,6 +7,7 @@ import se.lexicon.vxo.model.PersonDto;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.time.temporal.ChronoUnit;
 import java.util.*;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -253,7 +254,7 @@ public class StreamAssignment {
         int expectedSize = 107;
         Map<String, List<Person>> personMap = null;
 
-        //Write code here
+        personMap = people.stream().collect(Collectors.groupingBy(Person::getLastName));
 
         assertNotNull(personMap);
         assertEquals(expectedSize, personMap.size());
@@ -266,7 +267,8 @@ public class StreamAssignment {
     public void task14(){
         LocalDate[] _2020_dates = null;
 
-        //Write code here
+        LocalDate start = LocalDate.of(2020,1,1);
+        LocalDate stop = LocalDate.of(2021,1,1);
 
 
         assertNotNull(_2020_dates);
