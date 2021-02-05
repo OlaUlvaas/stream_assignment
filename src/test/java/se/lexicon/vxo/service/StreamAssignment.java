@@ -270,6 +270,9 @@ public class StreamAssignment {
         LocalDate start = LocalDate.of(2020,1,1);
         LocalDate stop = LocalDate.of(2021,1,1);
 
+        _2020_dates = Stream.iterate(start, day ->
+                day.plusDays(1)).limit(ChronoUnit.DAYS.between(start, stop)).toArray(LocalDate[]::new);
+
 
         assertNotNull(_2020_dates);
         assertEquals(366, _2020_dates.length);
